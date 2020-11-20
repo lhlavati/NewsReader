@@ -1,8 +1,5 @@
 package luka.ferit.newsreader.retrofit;
 
-import java.util.List;
-
-import luka.ferit.newsreader.model.Article;
 import luka.ferit.newsreader.model.Response;
 import retrofit2.Call;
 import retrofit2.http.GET;

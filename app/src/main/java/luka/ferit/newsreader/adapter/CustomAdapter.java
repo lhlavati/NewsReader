@@ -1,6 +1,7 @@
 package luka.ferit.newsreader.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import java.util.List;
 
 import luka.ferit.newsreader.R;
 import luka.ferit.newsreader.model.Article;
+import luka.ferit.newsreader.view.ViewPagerActivity;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
@@ -31,7 +33,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     class CustomViewHolder extends RecyclerView.ViewHolder {
 
         public final View mView;
-
         private TextView txtTitle;
         private ImageView coverImage;
 
@@ -61,6 +62,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                 .placeholder((R.drawable.ic_launcher_background))
                 .error(R.drawable.ic_launcher_background)
                 .into(holder.coverImage);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ViewPagerActivity.class);
+                view.getContext().startActivity(intent);
+            }
+        });
 
     }
 

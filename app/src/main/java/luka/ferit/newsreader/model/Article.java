@@ -17,6 +17,10 @@ public class Article {
     @SerializedName("publishedAt")
     private String publishedAt;
 
+    public Article(){
+
+    }
+
     public Article(String author, String title, String description, String url, String urlToImage, String publishedAt) {
         this.author = author;
         this.title = title;
