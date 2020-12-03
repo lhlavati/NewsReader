@@ -20,10 +20,6 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
 
         PagerFragment pagerFragment = new PagerFragment();
-        Bundle bundle = new Bundle();
-        position = position + 1;
-        bundle.putString("message", "This is " + position + " position.");
-        pagerFragment.setArguments(bundle);
         return pagerFragment;
     }
 

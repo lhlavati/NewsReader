@@ -2,6 +2,7 @@ package luka.ferit.newsreader.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +54,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder holder, int position) {
+    public void onBindViewHolder(CustomViewHolder holder, final int position) {
         holder.txtTitle.setText(dataList.get(position).getTitle());
 
         Picasso.Builder builder = new Picasso.Builder(context);
@@ -67,6 +68,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), ViewPagerActivity.class);
+                intent.putExtra("pos", position);
+                intent.putExtra("title", dataList.get(position).getTitle());
+                intent.putExtra("desc", dataList.get(position).getDescription());
+                intent.putExtra("image", dataList.get(position).getUrlToImage());
                 view.getContext().startActivity(intent);
             }
         });

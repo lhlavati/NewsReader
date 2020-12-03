@@ -31,7 +31,6 @@ public class PagerFragment extends Fragment {
     private ImageView imageSingle;
     private TextView titleSingle;
     private TextView descSingle;
-    private Context context;
     Article data = new Article();
 
     public PagerFragment() {
@@ -48,8 +47,8 @@ public class PagerFragment extends Fragment {
         titleSingle.setText(data.getTitle());
         descSingle.setText(data.getDescription());
 
-        Picasso.Builder builder = new Picasso.Builder(context);
-        builder.downloader(new OkHttp3Downloader(context));
+        Picasso.Builder builder = new Picasso.Builder(getContext());
+        builder.downloader(new OkHttp3Downloader(getContext()));
         try {
             imageSingle.setImageBitmap(drawable_from_url(data.getUrlToImage()));
         } catch (IOException e) {
